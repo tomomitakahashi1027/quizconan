@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#5a4033">
+  <meta name="description" content="10問であなたに似ているキャラクタータイプを診断する非公式ファンゲームです。">
+  <title>名探偵コナン診断ゲーム</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <div class="pattern" aria-hidden="true"></div>
+  <main class="app-shell">
+    <header class="site-header">
+      <div class="logo-mark" aria-hidden="true">🎀</div>
+      <div>
+        <p class="eyebrow">DETECTIVE TYPE CHECK</p>
+        <h1><ruby>名探偵<rt>めいたんてい</rt></ruby>コナン<ruby>診断<rt>しんだん</rt></ruby>ゲーム</h1>
+      </div>
+    </header>
+
+    <section id="start-screen" class="card screen active" aria-labelledby="start-title">
+      <div class="hero-icon" aria-hidden="true">🔎</div>
+      <h2 id="start-title"><ruby>君<rt>きみ</rt></ruby>はどのキャラクタータイプ？</h2>
+      <p>10<ruby>問<rt>もん</rt></ruby>の<ruby>質問<rt>しつもん</rt></ruby>に<ruby>答<rt>こた</rt></ruby>えて、<ruby>性格<rt>せいかく</rt></ruby>がいちばん<ruby>近<rt>ちか</rt></ruby>いキャラクターを<ruby>見<rt>み</rt></ruby>つけよう！</p>
+      <ul class="feature-list">
+        <li>🏆 <ruby>上位<rt>じょうい</rt></ruby>3キャラクターを<ruby>表示<rt>ひょうじ</rt></ruby></li>
+        <li>💕 <ruby>相性<rt>あいしょう</rt></ruby>キャラクターもわかる</li>
+        <li>📱 スマートフォンでも<ruby>遊<rt>あそ</rt></ruby>びやすい</li>
+      </ul>
+      <button id="start-button" class="primary-button">ゲームをはじめる</button>
+      <p class="fan-note">※このサイトは<ruby>非公式<rt>ひこうしき</rt></ruby>のファンメイドコンテンツです。<ruby>公式画像<rt>こうしきがぞう</rt></ruby>は<ruby>使用<rt>しよう</rt></ruby>していません。</p>
+    </section>
+
+    <section id="quiz-screen" class="card screen" aria-live="polite">
+      <div class="quiz-topbar">
+        <button id="back-button" class="text-button" type="button">← <ruby>戻<rt>もど</rt></ruby>る</button>
+        <span id="question-counter" class="counter"></span>
+      </div>
+      <div class="progress-track" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+      <div id="question-icon" class="question-icon" aria-hidden="true"></div>
+      <h2 id="question-text"></h2>
+      <div id="answer-list" class="answer-list" role="group" aria-label="回答の選択肢"></div>
+    </section>
+
+    <section id="thinking-screen" class="card screen center-screen" aria-live="assertive">
+      <div class="thinking-orbit" aria-hidden="true"><span>⚽</span></div>
+      <h2 id="thinking-title"><ruby>推理中<rt>すいりちゅう</rt></ruby>...</h2>
+      <p id="thinking-message"><ruby>回答<rt>かいとう</rt></ruby>を<ruby>調<rt>しら</rt></ruby>べています</p>
+    </section>
+
+    <section id="result-screen" class="card screen" aria-live="polite">
+      <p class="result-kicker">🏆 <ruby>診断結果<rt>しんだんけっか</rt></ruby></p>
+      <div id="result-icon" class="result-icon" aria-hidden="true"></div>
+      <p>あなたは...</p>
+      <h2 id="result-name"></h2>
+      <p id="result-tagline" class="tagline"></p>
+      <p id="result-description" class="description"></p>
+
+      <section class="result-section compatibility">
+        <h3>💕 <ruby>相性<rt>あいしょう</rt></ruby>No.1</h3>
+        <div class="compatibility-person">
+          <span id="compatibility-icon" class="small-icon" aria-hidden="true"></span>
+          <div><strong id="compatibility-name"></strong><p id="compatibility-text"></p></div>
+        </div>
+      </section>
+
+      <section class="result-section">
+        <h3>🥇 キャラクターランキング</h3>
+        <div id="ranking-list" class="ranking-list"></div>
+      </section>
+
+      <section class="result-section">
+        <h3>📣 <ruby>SNS<rt>エスエヌエス</rt></ruby>で<ruby>共有<rt>きょうゆう</rt></ruby></h3>
+        <div class="share-buttons">
+          <a id="share-x" class="share-button x-button" target="_blank" rel="noopener">Xで共有</a>
+          <a id="share-line" class="share-button line-button" target="_blank" rel="noopener">LINEで共有</a>
+          <button id="copy-result" class="share-button copy-button" type="button">結果をコピー</button>
+        </div>
+        <p id="copy-status" class="copy-status" aria-live="polite"></p>
+      </section>
+
+      <button id="restart-button" class="primary-button" type="button">もう<ruby>一度<rt>いちど</rt></ruby>あそぶ</button>
+    </section>
+  </main>
+  <footer>非公式ファンメイド診断ゲーム</footer>
+</body>
+</html>
